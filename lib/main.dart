@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutter_bloc_learn/blocs/auth_bloc/auth_bloc.dart';
-import 'package:flutter_bloc_learn/modules/auth/view/auth_view.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:loading_plus/loading_plus.dart';
+
+import 'package:flutter_bloc_learn/features/splash/presentation/views/splash_view.dart';
 
 void main() {
   runApp(const MyApp());
@@ -16,13 +16,25 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'Flutter Demo',
-      theme: ThemeData(
+      theme: ThemeData.dark().copyWith(
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
+        textTheme: GoogleFonts.montserratTextTheme(ThemeData.dark().textTheme),
+        appBarTheme: const AppBarTheme(
+          backgroundColor: Colors.transparent,
+          elevation: 0,
+          scrolledUnderElevation: 0.0,
+          actionsIconTheme: IconThemeData(color: Colors.white),
+          titleTextStyle: TextStyle(
+            color: Colors.white,
+            fontSize: 20,
+            fontWeight: FontWeight.bold,
+          ),
+        ),
       ),
       builder: (context, child) {
         return LoadingPlus(child: child!);
       },
-      home: BlocProvider(create: (_) => AuthBloc(), child: const AuthView()),
+      home: const SplashView(),
     );
   }
 }
