@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc_learn/core/utils/app_router.dart';
 import 'package:flutter_bloc_learn/core/utils/assets_images.dart';
+import 'package:go_router/go_router.dart';
 
 class HomeAppBar extends StatelessWidget implements PreferredSizeWidget {
   const HomeAppBar({super.key});
@@ -15,7 +17,7 @@ class HomeAppBar extends StatelessWidget implements PreferredSizeWidget {
         IconButton(
           icon: const Icon(Icons.search),
           onPressed: () {
-            // Handle notification button press
+            GoRouter.of(context).push(AppRouter.kSearchView);
           },
         ),
       ],

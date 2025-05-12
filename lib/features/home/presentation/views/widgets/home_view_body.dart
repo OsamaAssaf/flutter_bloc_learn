@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc_learn/features/home/presentation/views/widgets/item_list_widget.dart';
-import 'package:flutter_bloc_learn/features/home/presentation/views/widgets/user_item_list.dart';
+import 'package:flutter_bloc_learn/features/home/presentation/views/widgets/top_users_item_list.dart';
+import 'package:flutter_bloc_learn/features/home/presentation/views/widgets/all_users_item_list.dart';
 
 class HomeViewBody extends StatelessWidget {
   const HomeViewBody({super.key});
@@ -12,14 +12,17 @@ class HomeViewBody extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           const SizedBox(height: 16.0),
-          const ItemListWidget(),
+          const TopUsersItemList(),
           const SizedBox(height: 16.0),
           Padding(
             padding: const EdgeInsets.all(8.0),
             child: Text('Users', style: Theme.of(context).textTheme.titleLarge),
           ),
           const SizedBox(height: 16.0),
-          const Expanded(child: UserItemList()),
+          const Padding(
+            padding: EdgeInsets.all(8.0),
+            child: AllUsersItemList(),
+          ),
         ],
       ),
     );

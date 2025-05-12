@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc_learn/core/utils/app_router.dart';
 import 'package:flutter_bloc_learn/core/utils/assets_images.dart';
-import 'package:flutter_bloc_learn/features/home/presentation/views/home_view.dart';
 import 'package:flutter_bloc_learn/features/splash/presentation/views/widget/sliding_text.dart';
+import 'package:go_router/go_router.dart';
 
 class SplashViewBody extends StatefulWidget {
   const SplashViewBody({super.key});
@@ -64,10 +65,7 @@ class _SplashViewBodyState extends State<SplashViewBody>
   void navigateToHome() {
     Future.delayed(const Duration(seconds: 1), () {
       if (mounted) {
-        Navigator.pushReplacement(
-          context,
-          MaterialPageRoute(builder: (_) => const HomeView()),
-        );
+        GoRouter.of(context).pushReplacement(AppRouter.kHomeView);
       }
     });
   }

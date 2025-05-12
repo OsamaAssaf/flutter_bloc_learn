@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc_learn/features/home/data/models/user_model/user_model.dart';
 
-class ItemWidget extends StatelessWidget {
-  const ItemWidget({super.key});
+class TopUsersItem extends StatelessWidget {
+  const TopUsersItem({super.key, required this.userModel});
+
+  final UserModel userModel;
 
   @override
   Widget build(BuildContext context) {
@@ -10,9 +13,9 @@ class ItemWidget extends StatelessWidget {
       child: Container(
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(16.0),
-          image: const DecorationImage(
+          image: DecorationImage(
             fit: BoxFit.fill,
-            image: NetworkImage('https://picsum.photos/200/300'),
+            image: NetworkImage('${userModel.image}'),
           ),
         ),
       ),
